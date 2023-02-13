@@ -26,3 +26,15 @@ async function main2() {
   console.log(newUsers);
 }
 main2();
+
+async function main3() {
+  const users = await getUsers();
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username !== 'Samantha' || i === users.length - 1) continue;
+    const temp = users[i];
+    users[i] = users[i + 1];
+    users[i + 1] = temp;
+  }
+  console.log(users);
+}
+main3();
